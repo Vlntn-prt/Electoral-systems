@@ -6,3 +6,9 @@ I will do so using
 2) Last national election affluences
 
 Any suggestion is welcome! 
+
+
+### Italy
+
+Sources 
+- Dossier "Decisione 2018/994 del Consiglio dell’UE che modifica l'atto relativo all'elezione dei membri del Parlamento europeo a suffragio universale diretto", available online https://www.senato.it/service/PDF/PDFServer/BGT/01084689.pdf
