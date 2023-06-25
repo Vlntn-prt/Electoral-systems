@@ -12,3 +12,4 @@ Any suggestion is welcome!
 
 Sources 
 - Dossier "Decisione 2018/994 del Consiglio dell’UE che modifica l'atto relativo all'elezione dei membri del Parlamento europeo a suffragio universale diretto", available online https://www.senato.it/service/PDF/PDFServer/BGT/01084689.pdf
+- Dossier "La riforma del sistema elettorale europeo" https://documenti.camera.it/Leg19/Dossier/Pdf/RI014.Pdf
