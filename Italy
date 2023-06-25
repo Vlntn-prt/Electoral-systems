@@ -1,0 +1,47 @@
+import pandas as pd
+import math
+
+#define the number of seats to be assigned
+seggi = 76
+
+#define how many seats will be assigned in each costituency
+seggicirc = pd.DataFrame({
+    "seggi":[15, 8, 18, 20, 15],
+    "circeuropa":['Centrale', 'Isole', 'Meridionale' ,'Nord-occidentale' ,'Nord-orientale']
+})
+
+# Calculate total valid votes nationwide
+total_votes = df['Votes'].sum()
+    
+# Calculate the threshold for eligible parties
+threshold = total_votes * 0.04
+
+# Group by Party and calculate if they met the threshold
+total_nation_wide = df.groupby(by='Party')['Votes'].sum()
+eligible_parties = total_nation_wide >= threshold
+
+# Include in the dataframe only parties above the threshold
+df['over_threshold'] = df.apply(lambda r: eligible_parties[r['Party']], axis=1)
+df = df[df['over_threshold'] == True]
+
+##calcolo il quoziente di Hare solo sui voti over threshold
+total_votes = df['Votes'].sum()
+QuozientediHare = total_votes/seggi
+
+# Group by party
+accrip = df.groupby(by='Party')['Votes'].sum()
+
+## Calculate seats by party
+# Seats earned with the quota
+seggi_quote = accrip // QuozientediHare
+# Calculate remaining seats
+remaining_seats = seggi - seggi_quote.sum()
+# Seats erned by the remainder
+seggi_resti = (accrip / QuozientediHare)-seggi_quote
+seggi_resti = seggi_resti.sort_values()
+seggi_resti.iloc[:int(remaining_seats)] = 1
+seggi_resti.iloc[int(remaining_seats):] = 0
+#total seats earned by party
+seggi_tot = seggi_quote + seggi_resti
+    
+df['seats_national'] = df.apply(lambda r: seggi_tot[r['DESCRLISTA']], axis=1)
